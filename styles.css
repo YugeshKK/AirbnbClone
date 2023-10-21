@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.header{
+    height: 750px;
+    background-color: black;
+}
+nav{
+    padding:20px 50px 30px 50px;
+    display: flex;
+}
+
+li{
+    color: white;
+}
+#one{
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+}
+#two{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 240px;
+    width: 180px;
+}
+#white{
+    width: 50px;
+    height: 25px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+
+#white img{
+    padding: 2px;
+}
+
+
+.search ul{
+    display: flex;
+    justify-content: space-between;
+    width: 750px;
+    height: 64px;
+    margin: auto;
+    border-radius: 27px;
+    background-color: white;
+}
+ .search ul li{
+    color: black;
+    padding: 10px;
+ }
+span{
+    font-size: 14px;
+    color: rgba(31, 28, 28, 0.753);
+}
+
+.img img{
+    width: 1112px;
+    height: 540px;
+    margin: 10px 50px 10px 50px ;
+}
+.cards{
+    margin: 50px;
+}
+.card{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.card div img{
+    width: 240px;
+    height: 180px;
+}
+.text{
+    height: 130px;
+    color: white;
+    background-color: rgb(158, 41, 123);
+}
+.text h4{
+    font-size: 36px;
+    font-weight: 500;
+}
+.text p{
+    font-size: 16px;
+    font-weight: 400;
+}
+.exp {
+    margin: 50px;
+}
+.exp h4{
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+.exp div img{
+    width: 528px;
+}
