@@ -15,6 +15,7 @@ nav{
 
 li{
     color: white;
+    cursor: pointer;
 }
 #one{
     display: flex;
@@ -99,4 +100,79 @@ span{
 }
 .exp div img{
     width: 528px;
+}
+
+.shop{
+    display: flex;
+    margin: 50px;
+    justify-content: space-between;
+}
+.shop div h5{
+    font-size: 48px;
+    font-weight: 500;
+}
+.shop img{
+    width: 550px;
+    height: 250px;
+    margin-right:300px ;
+}
+.shop button{
+    background-color: black;
+    margin-top: 30px;
+    color:white;
+    height: 35px;
+    border-radius: 10px;
+    width: 100px;
+}
+.photo {
+    margin: 50px;
+}
+.photo h5{
+    margin-top: 30px;
+    padding-bottom: 20px;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.photo ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.photo li{
+    color: black;
+}
+.photo img{
+    width: 1200px;
+    height: 640px;
+}
+
+table{
+    font-size: 13px;
+    width: 1000px;
+    margin-top: 10px;
+}
+tr{
+    padding: 20px;
+}
+td{
+    padding: 10px;
+    cursor: pointer;
+}
+.line{
+    height: 3px;
+    width: 100%;
+    background-color: yellow;
+}
+
+footer{
+    display: flex;
+
+}
+footer ul{
+    padding: 50px;
+}
+footer li{
+    color: black;
+    padding-bottom: 15px;
 }

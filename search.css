@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+button{
+    border: none;
+    background-color: white;
+}
+nav{
+    margin: 30px;
+}
+nav img{
+    height: 32px;
+}
+#one{
+    display: flex;
+    justify-content: space-between;
+}
+
+.center{
+    display: flex;
+    justify-content: space-between;
+    width: 370px;
+    border-radius: 20px;
+    padding: 5px;
+    box-shadow:5px 5px 8px rgba(90, 88, 88, 0.299) ;
+}
+.center img{
+    height: 15px;
+    width: 15px;
+}
+.center button{
+    border-right: 1px solid rgba(0, 0, 0, 0.443);
+    padding-right: 10px;
+    padding-left: 8px;
+}
+.last{
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+}
+.last img{
+    width: 24px;
+    height: 24px;
+}
+
+.filters{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+}
+.filters button{
+    border: 1px solid rgba(0, 0, 0, 0.167);
+    border-radius: 20px;
+    padding: 8px;
+}
+
+.container{
+    display: flex;
+    margin: 50px 30px 30px 30px;
+}
+
+.row div{
+    margin-bottom: 20px;
+}
+.cards{
+    width: 700px;
+    display: flex;
+}
+.cards div{
+    margin-left:20px ;
+}
+.heart{
+    display: flex;
+    justify-content: space-between;
+}
+#he{
+    margin-left: 100px;
+}
+
+.text{
+    margin-top: 40px;
+}
+
+#las{
+    display: flex;
+    margin-top: 60px;
+    justify-content: space-between;
+}
+#aa{
+  margin-left: 100px;
+}
+.map{
+    flex-grow: 1;
+}
+
+
