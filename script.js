@@ -1,8 +1,16 @@
-let searchBtn=document.getElementById('search');
+let btn= document.getElementById('btn');
 
-searchBtn.addEventListener('click', ()=>{
-    const newPageURL = "search.html"; // Change this to the desired URL
+let place= document.getElementById('loc');
+let inn= document.getElementById('in');
+let out= document.getElementById('out');
+let guest= document.getElementById('guest');
 
-    // Navigate to the new page
-    window.location.href = newPageURL;
+btn.addEventListener('click', ()=>{
+
+    const dataArray = [place.value, inn.value, out.value , guest.value];
+    const dataToSend = encodeURIComponent(JSON.stringify(dataArray));
+    window.location.href = `search.html?data=${dataToSend}`;
+
 })
+
+

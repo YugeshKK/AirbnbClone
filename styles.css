@@ -3,7 +3,15 @@
     padding: 0;
     list-style: none;
 }
-
+button{
+    border: none;
+    background-color: white;
+}
+input{
+    border: none;
+    outline-style: none;
+    font-size: 16px;
+}
 .header{
     height: 750px;
     background-color: black;
@@ -45,16 +53,21 @@ li{
 .search ul{
     display: flex;
     justify-content: space-between;
-    width: 750px;
+    width: 950px;
     height: 64px;
     margin: auto;
     border-radius: 27px;
     background-color: white;
 }
  .search ul li{
+    display: flex;
+    flex-direction: column;
     color: black;
     padding: 10px;
  }
+ /* .search li input{
+    height: 10px;
+ } */
 span{
     font-size: 14px;
     color: rgba(31, 28, 28, 0.753);

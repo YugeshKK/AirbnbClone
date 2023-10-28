@@ -22,8 +22,8 @@ nav img{
     justify-content: space-between;
     width: 370px;
     border-radius: 20px;
+    border: 1px solid grey;
     padding: 5px;
-    box-shadow:5px 5px 8px rgba(90, 88, 88, 0.299) ;
 }
 .center img{
     height: 15px;
