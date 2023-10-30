@@ -10,7 +10,6 @@ let  parsedArray;
 if (dataParam) {
     const decodedData = decodeURIComponent(dataParam);
      parsedArray = JSON.parse(decodedData);
-    // console.log(parsedArray);
 } else {
     dataDisplay.textContent = "No data received.";
 }
@@ -25,49 +24,101 @@ const options = {
 	}
 };
 
+var heart;
 async function hello(){
     try {
         const response = await fetch(url, options);
         const result = await response.json();
-        console.log(result);
-        let row= document.getElementById('row');
-        let cont= document.getElementById('cont');
-        cont.innerHTML=``;
+        console.log(result)
+         cont=document.getElementById('first'); 
+        // cont.innerHTML=``;
 
-       const obj= result.results[1];
-        let src;
-       for (const key in obj) {
-        if (Object.hasOwnProperty.call(obj, key)) {
-           if(key=='images'){
-             sr= obj[key][0];
-           }
+       const objj= result.results;
+       for (const key in objj) {    
+        if (Object.hasOwnProperty.call(objj, key)) {
+            row= document.createElement('div');
+            row.setAttribute('id', 'row');
             
+           const obj= objj[key];
+
+           for (const key in obj) {
+            if (Object.hasOwnProperty.call(obj, key)) {
+               if(key=='images'){
+                 sr= obj[key][0];
+               }
+               if(key=='name'){
+                nam=obj[key]
+               }
+               if(key=='persons'){
+                per=obj[key]
+               }
+               if(key=='beds'){
+                bed=obj[key];
+               }
+               if(key=='bathrooms'){
+                bath= obj[key];
+               }
+               if(key=='previewAmenities'){
+                const arr= obj[key];
+                 str='';
+                for (let index = 0; index < arr.length; index++) {
+                    str += arr[index]+" .";
+                }
+               }
+               if(key=='rating'){
+                rat= obj[key];
+               }
+               if(key=='reviewsCount'){
+                rev= obj[key];
+               }
+               if(key=='price'){
+                price= obj[key];
+                pp=price.priceItems[0].title;
+               }    
+            }
+           }
+         
+            row.innerHTML=`<div  class="cards">
+            <img src=${sr} id='imgg' width="300px" height="250px" alt="">
+            <div>
+                <div class="heart">
+                    <p>Entire Home in ${parsedArray[0]} <br><b style="font-size: 20px;">${nam}</b></p>
+                    <img src="images/icons8-heart-50.png" id="he" width="16px" height="20px" alt="">
+                </div>
+                <div class="text">
+                    <p>${per} guests Entire home ${bed} beds ${bath} bath <br>${str}</p>
+                </div>
+                <div id="las">
+                    <p>${rat}</p>
+                    <img src="images/icons8-star-50.png" width="18px" alt="">
+                    <p>(${rev})</p>
+                    <p id="aa"><b>${pp}</b></p>
+                </div>
+            </div>
+        </div>`
+    
+        cont.appendChild(row);
+    
         }
        }
-        row.innerHTML=`<div  class="cards">
-        <img src=${sr} width="300px" height="250px" alt="">
-        <div>
-            <div class="heart">
-                <p>Entire Home Bordeaux <br><b style="font-size: 20px;">Bordeaux Getaway</b></p>
-                <img src="images/icons8-heart-50.png" id="he" width="16px" height="20px" alt="">
-            </div>
-            <div class="text">
-                <p>4-6 guests Entire home 5 beds 3 bath <br> wifi . kitchen . Free parking</p>
-            </div>
-            <div id="las">
-                <p>5.0</p>
-                <img src="images/icons8-star-50.png" width="18px" alt="">
-                <p>(318 reviews)</p>
-                <p id="aa"><b>$325 /night</b></p>
-            </div>
-        </div>
-    </div>`
-
-    cont.appendChild(row);
     } catch (error) {
         console.error(error);
     }
+    let map= document.getElementById('map');
+
+    map.style.display='block'
 }
 
-
 hello();
+
+
+setTimeout(() => {
+    hear= document.getElementById('he');
+    hear.addEventListener('click', ()=>{
+        hear.setAttribute('src', 'images/red.png')
+     })
+}, 10000);
+
+
+
+

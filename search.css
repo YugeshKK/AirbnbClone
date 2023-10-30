@@ -8,6 +8,12 @@ button{
 }
 nav{
     margin: 30px;
+    width: 100%;
+    overflow: hidden;
+    top: 0;
+    background-color: white;
+    position: fixed;
+    z-index: 1;
 }
 nav img{
     height: 32px;
@@ -46,8 +52,14 @@ nav img{
 
 .filters{
     display: flex;
-    justify-content: space-between;
+    position: fixed;
+    overflow: hidden;
+    z-index: 2;
+    width: 100%;
     margin: 30px;
+    background-color: white;
+    justify-content: space-between;
+    top: 100px;
 }
 .filters button{
     border: 1px solid rgba(0, 0, 0, 0.167);
@@ -57,7 +69,9 @@ nav img{
 
 .container{
     display: flex;
-    margin: 50px 30px 30px 30px;
+    flex-direction: row;
+    z-index: -1;
+    margin: 190px 30px 30px 30px;
 }
 
 .row div{
@@ -76,8 +90,11 @@ nav img{
 }
 #he{
     margin-left: 100px;
+    
 }
-
+#imgg{
+    border-radius: 20px;
+}
 .text{
     margin-top: 40px;
 }
@@ -90,8 +107,20 @@ nav img{
 #aa{
   margin-left: 100px;
 }
-.map{
-    flex-grow: 1;
+
+#first{
+    overflow-y: scroll;
+    height: 422px;
+}
+#first::-webkit-scrollbar {
+    display: none;
+}
+#row{
+    margin-bottom: 20px;
+}
+
+#map{
+    display: none;
 }
 
 
