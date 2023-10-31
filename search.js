@@ -27,6 +27,21 @@ const options = {
 
 var heart;
 
+let pla= document.getElementById('place')
+let dat= document.getElementById('dat');
+let gue= document.getElementById('gue');
+let btn= document.getElementById('btn');
+
+pla.value= parsedArray[0];
+dat.value=parsedArray[1];
+gue.value=parsedArray[3]+" guests";
+
+
+
+
+
+
+
 async function hello(){
     try {
         const response = await fetch(url, options);
@@ -163,6 +178,8 @@ let infoWindows=[];
       infoWindow.close();
     });
   }
+
+
 
 
 
