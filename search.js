@@ -1,4 +1,5 @@
 
+
 function getQueryParam(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
@@ -15,22 +16,23 @@ if (dataParam) {
 }
 
 
-const url = `https://airbnb13.p.rapidapi.com/search-location?location=${parsedArray[0]}&checkin=${parsedArray[1]}&checkout=${parsedArray[2]}&adults=${parsedArray[3]}&children=0&infants=0&pets=0&page=1&currency=USD`;
+const url = `https://airbnb13.p.rapidapi.com/search-location?location=${parsedArray[0]}&checkin=${parsedArray[1]}&checkout=${parsedArray[2]}&adults=${parsedArray[3]}&children=0&infants=0&pets=0&page=1&currency=INR`;
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': 'f2ccce2444msh91b16b4c8616eeap138df1jsn9820ce629428',
+		'X-RapidAPI-Key': '01ab9c2533msh4b2bec45b84110bp1ce9f3jsn5a91e4d0e84e',
 		'X-RapidAPI-Host': 'airbnb13.p.rapidapi.com'
 	}
 };
 
 var heart;
+
 async function hello(){
     try {
         const response = await fetch(url, options);
         const result = await response.json();
-        console.log(result)
          cont=document.getElementById('first'); 
+        markerData=[[]];
         // cont.innerHTML=``;
 
        const objj= result.results;
@@ -74,7 +76,13 @@ async function hello(){
                if(key=='price'){
                 price= obj[key];
                 pp=price.priceItems[0].title;
-               }    
+               } 
+               if(key=='lat'){
+                lat= obj[key]
+               } 
+               if(key=='lng'){
+                lng= obj[key];
+               }
             }
            }
          
@@ -98,7 +106,7 @@ async function hello(){
         </div>`
     
         cont.appendChild(row);
-    
+        markerData.push([lat, lng, nam]);
         }
        }
     } catch (error) {
@@ -107,17 +115,56 @@ async function hello(){
     let map= document.getElementById('map');
 
     map.style.display='block'
+    return markerData;
+
+
 }
 
-hello();
+ 
+let infoWindows=[];
+(async ()=>{
+    markerData= await hello();
+(function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: markerData[1][0], lng: markerData[1][1] },
+      zoom: 4
+    });
+
+    markerData.forEach(coordinate => {
+      const position = new google.maps.LatLng(coordinate[0], coordinate[1]);
+      const name = coordinate[2];
+      const marker = addMarker(position, map, name);
+    });
+  })();
+})();
+  // Function to add markers
+  function addMarker(position, map, name) {
+    const marker = new google.maps.Marker({
+      position,
+      map
+    });
+
+    const infoWindow = new google.maps.InfoWindow({
+      content: name
+    });
+
+    marker.addListener('click', function() {
+      closeAllInfoWindows();
+      infoWindow.open(map, marker);
+    });
+
+    infoWindows.push(infoWindow);
+
+    return marker;
+  }
+
+  function closeAllInfoWindows() {
+    infoWindows.forEach(infoWindow => {
+      infoWindow.close();
+    });
+  }
 
 
-setTimeout(() => {
-    hear= document.getElementById('he');
-    hear.addEventListener('click', ()=>{
-        hear.setAttribute('src', 'images/red.png')
-     })
-}, 10000);
 
 
 
