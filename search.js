@@ -11,6 +11,7 @@ let  parsedArray;
 if (dataParam) {
     const decodedData = decodeURIComponent(dataParam);
      parsedArray = JSON.parse(decodedData);
+     console.log(parsedArray)
 } else {
     dataDisplay.textContent = "No data received.";
 }
